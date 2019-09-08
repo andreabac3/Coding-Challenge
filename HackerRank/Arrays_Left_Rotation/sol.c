@@ -23,12 +23,8 @@ char** split_string(char*);
 int* rotLeft(int a_count, int* a, int d, int* result_count) {
     int* result = calloc(a_count, sizeof(int));
     int j = d;
-    for(int i = 0; i < a_count; i++){
-        result[i] = a[j];
-        j++;
-        if (j >= a_count){
-            j = 0;
-        }
+    for(int i = 0; i < a_count; i++, j++){
+        result[i] = a[j%a_count];
     }
     return result;
 }
